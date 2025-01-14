@@ -5,24 +5,28 @@
   </button>
 
   <nz-table #editRowTable nzShowSizeChanger [nzFrontPagination]="false" nzBordered [nzData]="users"
-    [nzScroll]="{ x: 'auto' }" [nzPageSizeOptions]="[5, 20, 50]" [nzPageIndex]="pageIndex" [nzTotal]="total"
-    [nzPageSize]="pageSize" (nzPageSizeChange)="pageSizeChanged($event)" (nzPageIndexChange)="onPageIndexChange($event)"
-    #sortTable (nzQueryParams)="onQueryParamsChange($event)">
+    [nzScroll]="{ x: 'auto' }" [nzPageSizeOptions]="[10, 20, 50]" [nzPageIndex]="pageIndex" [nzTotal]="total"
+    [nzPageSize]="pageSize" (nzPageSizeChange)="pageSizeChanged($event)" (nzPageIndexChange)="onPageIndexChange($event)">
     <thead>
       <tr>
-        <th>No.</th>
+     
         <th nzWidth="5%" nzAlign="center">Id</th>
-        <th nzWidth="25%" nzAlign="center">Name</th>
-        <th nzWidth="35%" nzAlign="center">Email</th>
+        <th nzWidth="15%" nzAlign="center">Name</th>
+        <th nzWidth="25%" nzAlign="center">Email</th>
+        <th nzWidth="15%" nzAlign="center">Phone</th>
+        <th nzWidth="15%" nzAlign="center">Website</th>
         <th nzWidth="15%" nzAlign="center">Action</th>
+        
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let user of users; let i = index">
-        <td>{{(pageSize*(pageIndex-1)) + i + 1}}</td>
+       
         <td nzAlign="center">{{ user.id }}</td>
         <td nzAlign="left">{{ user.name }}</td>
         <td nzAlign="left">{{ user.email }}</td>
+        <td nzAlign="left">{{ user.phone }}</td>
+        <td nzAlign="left">{{ user.website }}</td>
         <td nzAlign="center">
           <button nz-button nzType="default" [routerLink]="['/view',user.id]">
             <i nz-icon nzType="eye" nzTheme="outline"></i> View
