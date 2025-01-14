@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, Input, input, output, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../user.service';
@@ -18,31 +18,39 @@ import { NzAlertComponent } from 'ng-zorro-antd/alert';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  @Input() user!: User;
-  @Output() update = new EventEmitter<User>();
+  user!: User;
   form!: FormGroup;
 
-  constructor(
-    public userService: UserService,
-    private router: Router,
-    private route: ActivatedRoute
-  ) {}
+  @ViewChild('nameDisplay', { static: true }) nameDisplay!: ElementRef; 
+
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    if (!this.user) {
-      const id = Number(this.route.snapshot.paramMap.get('id'));
-      const users = JSON.parse(localStorage.getItem('arr') || '[]') as User[];
-      this.user = users.find(u => u.id === id) || {} as User;
-    }
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const users = JSON.parse(localStorage.getItem('arr') || '[]') as User[];
+    this.user = users.find(u => u.id === id) || ({} as User);
+
     this.initializeForm();
+
+   
+    this.updateNameDisplay(this.user?.name);
+    this.form.get('name')?.valueChanges.subscribe(value => {
+      this.updateNameDisplay(value);
+    });
   }
 
   initializeForm(): void {
     this.form = new FormGroup({
       name: new FormControl(this.user?.name, [Validators.required]),
       email: new FormControl(this.user?.email, [Validators.required, Validators.email]),
-      phone: new FormControl(this.user?.phone, Validators.required)
+      phone: new FormControl(this.user?.phone, [Validators.required])
     });
+  }
+
+  updateNameDisplay(value: string): void {
+    if (this.nameDisplay) {
+      this.nameDisplay.nativeElement.textContent = value || 'No Name Provided';
+    }
   }
 
   get f() {
@@ -55,19 +63,20 @@ export class EditComponent implements OnInit {
         ...this.user,
         ...this.form.value
       };
+
       const users = JSON.parse(localStorage.getItem('arr') || '[]') as User[];
       const index = users.findIndex(u => u.id === updatedUser.id);
       if (index !== -1) {
         users[index] = updatedUser;
         localStorage.setItem('arr', JSON.stringify(users));
       }
+
       alert('Data Updated Successfully');
-      this.update.emit(updatedUser);
-      this.goBack();  
+      this.goBack();
     }
   }
 
   goBack(): void {
-    this.router.navigate(['/home']);  
+    this.router.navigate(['/home']);
   }
 }

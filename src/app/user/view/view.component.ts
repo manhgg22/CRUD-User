@@ -39,6 +39,6 @@ export class ViewComponent implements OnInit {
   }
 
   toggleEditMode(): void {
-    this.editMode = !this.editMode;
+    this.router.navigate([`/edit/${this.user?.id}`]);
   }
 }
