@@ -33,5 +33,5 @@
 .content {
   padding: 20px;
   background: #f0f2f5;
-  min-height: calc(100vh - 64px); /* Adjust for header height */
+  min-height: calc(100vh - 64px); 
 }

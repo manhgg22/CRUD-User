@@ -7,7 +7,8 @@
   <nz-table>
     <thead>
       <tr>
-        <th nzWidth="5%" nzAlign="center">Id</th>
+        <th nzWidth="5%" nzAlign="center">No</th>
+ 
         <th nzWidth="15%" nzAlign="center">Name</th>
         <th nzWidth="25%" nzAlign="center">Email</th>
         <th nzWidth="15%" nzAlign="center">Phone</th>
@@ -17,7 +18,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let user of users; let i = index">
-        <td nzAlign="center">{{ user.id }}</td>
+        <td nzAlign="center">{{ i + 1 }}</td>
+      
         <td nzAlign="left">{{ user.name }}</td>
         <td nzAlign="left">{{ user.email }}</td>
         <td nzAlign="left">{{ user.phone }}</td>
