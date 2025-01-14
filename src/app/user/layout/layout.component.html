@@ -1,32 +1,45 @@
 <nz-layout>
-    <nz-header>
-      <div class="logo">CRUD Application</div>
-    </nz-header>
-    
-    <nz-layout>
-      
-      <nz-sider [nzWidth]="200" class="custom-sidebar">
-        <ul nz-menu nzMode="inline" nzTheme="dark">
-          <li nz-menu-item routerLink="/dashboard">
-            <i nz-icon nzType="appstore" nzTheme="outline"></i> Dashboard
-          </li>
-          <li nz-menu-item routerLink="post/index">
-            <i nz-icon nzType="file-text" nzTheme="outline"></i> Posts
-          </li>
-          
-          <li nz-menu-item routerLink="/settings">
-            <i nz-icon nzType="setting" nzTheme="outline"></i> Settings
-          </li>
-        </ul>
-      </nz-sider>
-  
-     
-      <nz-content>
-        <div class="content">
-        
-          <router-outlet></router-outlet>
-        </div>
-      </nz-content>
-    </nz-layout>
+  <!-- Header -->
+  <nz-header class="custom-header">
+    <div class="logo">CRUD Application</div>
+    <div class="header-right">
+      <span>English</span>
+      <i nz-icon nzType="bell" nzTheme="outline" class="notification-icon"></i>
+      <i nz-icon nzType="user" nzTheme="outline" class="user-icon"></i>
+      <span class="username">Admin</span>
+    </div>
+  </nz-header>
+
+  <nz-layout>
+    <!-- Sidebar -->
+    <nz-sider [nzWidth]="200" class="custom-sidebar">
+      <ul nz-menu nzMode="inline" nzTheme="dark">
+        <li nz-menu-item routerLink="/dashboard">
+          <i nz-icon nzType="dashboard" nzTheme="outline"></i> Dashboard
+        </li>
+        <li nz-menu-item routerLink="/tenants">
+          <i nz-icon nzType="team" nzTheme="outline"></i> Tenants
+        </li>
+        <li nz-menu-item routerLink="/administration">
+          <i nz-icon nzType="setting" nzTheme="outline"></i> Administration
+        </li>
+        <li nz-menu-item routerLink="/users">
+          <i nz-icon nzType="user" nzTheme="outline"></i> Users
+        </li>
+        <li nz-menu-item routerLink="/roles">
+          <i nz-icon nzType="solution" nzTheme="outline"></i> Roles
+        </li>
+        <li nz-menu-item routerLink="/audit-logs">
+          <i nz-icon nzType="file-done" nzTheme="outline"></i> Audit Logs
+        </li>
+      </ul>
+    </nz-sider>
+
+    <!-- Content -->
+    <nz-content>
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
   </nz-layout>
-  
+</nz-layout>

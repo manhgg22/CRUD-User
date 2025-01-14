@@ -1,23 +1,37 @@
+.custom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1890ff;
+  color: white;
+  padding: 0 20px;
+}
+
 .logo {
-    height: 64px;
-    color: white;
-    line-height: 64px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  .menu {
-    display: flex;
-    justify-content: flex-end;
-    height: 100%;
-  }
-  
-  .content {
-    padding: 24px;
-    min-height: 280px;
-    background: #f0f2f5;
-  }
-  .custom-sidebar {
-  background-color: #001529; 
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.notification-icon,
+.user-icon {
+  font-size: 20px;
+  color: white;
+}
+
+.custom-sidebar {
+  height: 100vh;
+  background: #001529;
+}
+
+.content {
+  padding: 20px;
+  background: #f0f2f5;
+  min-height: calc(100vh - 64px); /* Adjust for header height */
 }

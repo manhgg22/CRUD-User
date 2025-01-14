@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../user';  
@@ -5,12 +6,12 @@ import { CommonModule } from '@angular/common';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
-import { EditComponent } from '../edit/edit.component';
+
 
 @Component({
   selector: 'app-view',
   standalone: true,
-  imports: [CommonModule, NzInputModule, NzButtonModule, NzAlertModule, EditComponent],
+  imports: [CommonModule, NzInputModule, NzButtonModule, NzAlertModule, ],
   templateUrl: './view.component.html',
   styleUrls: ['./view.component.css']
 })

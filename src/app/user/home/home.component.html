@@ -23,16 +23,19 @@
         <td nzAlign="left">{{ user.phone }}</td>
         
         <td nzAlign="center">
-          <button nz-button nzType="default" [routerLink]="['/view', user.id]">
-            <i nz-icon nzType="eye" nzTheme="outline"></i> View
-          </button>
-          <button nz-button nzType="primary" [routerLink]="['/edit', user.id]">
-            <i nz-icon nzType="edit" nzTheme="outline"></i> Edit
-          </button>
-          <button nz-button nzType="danger" (click)="deleteUser(user.id)">
-            <i nz-icon nzType="delete" nzTheme="outline"></i> Delete
-          </button>
+          <a [routerLink]="['/view', user.id]" class="action-link">
+            <i nz-icon nzType="eye" nzTheme="twotone"></i> View
+          </a>
+          |
+          <a [routerLink]="['/edit', user.id]" class="action-link">
+            <i nz-icon nzType="edit" nzTheme="twotone"></i> Edit
+          </a>
+          |
+          <a (click)="deleteUser(user.id)" class="action-link delete-link">
+            <i nz-icon nzType="delete" nzTheme="twotone"></i> Delete
+          </a>
         </td>
+        
       </tr>
     </tbody>
   </nz-table>

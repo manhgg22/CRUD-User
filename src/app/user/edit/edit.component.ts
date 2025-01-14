@@ -29,9 +29,7 @@ export class EditComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     const users = JSON.parse(localStorage.getItem('arr') || '[]') as User[];
     this.user = users.find(u => u.id === id) || ({} as User);
-
     this.initializeForm();
-
    
     this.updateNameDisplay(this.user?.name);
     this.form.get('name')?.valueChanges.subscribe(value => {

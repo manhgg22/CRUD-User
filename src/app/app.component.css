@@ -1,0 +1,12 @@
+button[nz-button] {
+    margin-right: 8px;
+    background-color: #1890ff;
+    border-color: #1890ff;
+    color: white;
+  }
+  
+  button[nz-button]:hover {
+    background-color: #40a9ff;
+    border-color: #40a9ff;
+  }
+  
