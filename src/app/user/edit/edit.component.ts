@@ -1,7 +1,7 @@
-import { Component,OnInit,  ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { UserService } from '../user.service';
+
 import { User } from '../user';
 import { CommonModule } from '@angular/common';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -34,6 +34,7 @@ export class EditComponent implements OnInit {
     this.updateNameDisplay(this.user?.name);
     this.form.get('name')?.valueChanges.subscribe(value => {
       this.updateNameDisplay(value);
+      console.log(this.updateNameDisplay,'updateName')
     });
   }
 
@@ -42,14 +43,24 @@ export class EditComponent implements OnInit {
       name: new FormControl(this.user?.name, [Validators.required]),
       email: new FormControl(this.user?.email, [Validators.required, Validators.email]),
       phone: new FormControl(this.user?.phone, [Validators.required])
+     
     });
   }
+  
 
-  updateNameDisplay(value: string): void {
-    if (this.nameDisplay) {
-      this.nameDisplay.nativeElement.textContent = value || 'No Name Provided';
+  updateNameDisplay(value: string):void{
+    if(this.nameDisplay){
+      console.log(this.nameDisplay)
+      this.nameDisplay.nativeElement.textContent = value || 'No Name '
     }
   }
+  
+
+  //   if (this.nameDisplay) {
+  
+  //     this.nameDisplay.nativeElement.textContent = value
+  //   }
+  // }
 
   get f() {
     return this.form.controls;

@@ -6,64 +6,29 @@
   <form [formGroup]="form" (ngSubmit)="submit()">
     <div class="form-group">
       <label for="name">Name:</label>
-      <input
-        nz-input
-        type="text"
-        id="name"
-        formControlName="name"
-        placeholder="Enter user name"
-        class="form-control"
-      />
-      <nz-alert
-        *ngIf="f['name'].touched && f['name'].invalid"
-        nzType="error"
-        nzMessage="Name is required."
-      ></nz-alert>
+      <input nz-input type="text" id="name" formControlName="name" placeholder="Enter user name" class="form-control" />
+      <nz-alert *ngIf="f['name'].touched && f['name'].invalid" nzType="error" nzMessage="Name is required."></nz-alert>
     </div>
 
     <div class="form-group mt-4">
       <label for="email">Email:</label>
-      <input
-        nz-input
-        type="email"
-        id="email"
-        formControlName="email"
-        placeholder="Enter user email"
-        class="form-control"
-      />
-      <nz-alert
-        *ngIf="f['email'].touched && f['email'].invalid"
-        nzType="error"
-        nzMessage="Email is required."
-      ></nz-alert>
+      <input nz-input type="email" id="email" formControlName="email" placeholder="Enter user email"
+        class="form-control" />
+      <nz-alert *ngIf="f['email'].touched && f['email'].invalid" nzType="error"
+        nzMessage="Email is required."></nz-alert>
     </div>
 
     <div class="form-group mt-4">
       <label for="phone">Phone:</label>
-      <input
-        nz-input
-        type="text"
-        id="phone"
-        formControlName="phone"
-        placeholder="Enter user phone"
-        class="form-control"
-      />
-      <nz-alert
-        *ngIf="f['phone'].touched && f['phone'].invalid"
-        nzType="error"
-        nzMessage="Phone is required."
-      ></nz-alert>
+      <input nz-input type="text" id="phone" formControlName="phone" placeholder="Enter user phone"
+        class="form-control" />
+      <nz-alert *ngIf="f['phone'].touched && f['phone'].invalid" nzType="error"
+        nzMessage="Phone is required."></nz-alert>
     </div>
 
     <p class="mt-4">Your updated name: <span #nameDisplay></span></p>
 
-    <button
-      nz-button
-      nzType="primary"
-      type="submit"
-      [disabled]="!form.valid"
-      class="mt-3 w-100"
-    >
+    <button nz-button nzType="primary" type="submit" [disabled]="!form.valid" class="mt-3 w-100">
       Update
     </button>
   </form>
