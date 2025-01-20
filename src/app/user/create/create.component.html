@@ -1,10 +1,7 @@
 <div class="container">
   <h1 class="text-center mb-4">Create New User</h1>
-  
-  <button class="btn btn-primary" (click)="goBack()">Back</button>
 
   <form [formGroup]="form" (ngSubmit)="submit()">
-    
     <div class="form-group">
       <label for="name">Name:</label>
       <input nz-input type="text" id="name" formControlName="name" placeholder="Enter user name" class="form-control">

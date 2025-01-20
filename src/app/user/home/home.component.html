@@ -1,43 +1,37 @@
 <div class="container">
-  <button nz-button nzType="primary" nzShape="round" [routerLink]="'/create'" class="user-btn">
-    <i nz-icon nzType="plus" nzTheme="outline"></i>
-    <span class="button-text">Create User</span>
-  </button>
+  <a nz-button nzType="primary" (click)="showCreateModal()" class="action-link">
+    <span>Create User</span>
+  </a>
 
   <nz-table>
     <thead>
       <tr>
         <th nzWidth="5%" nzAlign="center">No</th>
- 
         <th nzWidth="15%" nzAlign="center">Name</th>
         <th nzWidth="25%" nzAlign="center">Email</th>
         <th nzWidth="15%" nzAlign="center">Phone</th>
-        
         <th nzWidth="15%" nzAlign="center">Action</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let user of users; let i = index">
         <td nzAlign="center">{{ i + 1 }}</td>
-      
         <td nzAlign="left">{{ user.name }}</td>
         <td nzAlign="left">{{ user.email }}</td>
         <td nzAlign="left">{{ user.phone }}</td>
-        
         <td nzAlign="center">
-          <a [routerLink]="['/view', user.id]" class="action-link">
-            <i nz-icon nzType="eye" nzTheme="twotone"></i> View
+          <!-- <a (click)="showModal()" class="action-link">
+            <i nz-icon nzType="eye" nzTheme="outline"></i> View
           </a>
           |
-          <a [routerLink]="['/edit', user.id]" class="action-link">
-            <i nz-icon nzType="edit" nzTheme="twotone"></i> Edit
-          </a>
+          <a (click)="showModal()" class="action-link">
+            <i nz-icon nzType="edit" nzTheme="outline"></i> Edit
+          </a> -->
           |
           <a (click)="deleteUser(user.id)" class="action-link delete-link">
             <i nz-icon nzType="delete" nzTheme="twotone"></i> Delete
           </a>
         </td>
-        
       </tr>
     </tbody>
   </nz-table>

@@ -34,7 +34,6 @@ export class EditComponent implements OnInit {
     this.updateNameDisplay(this.user?.name);
     this.form.get('name')?.valueChanges.subscribe(value => {
       this.updateNameDisplay(value);
-      console.log(this.updateNameDisplay,'updateName')
     });
   }
 
@@ -43,24 +42,14 @@ export class EditComponent implements OnInit {
       name: new FormControl(this.user?.name, [Validators.required]),
       email: new FormControl(this.user?.email, [Validators.required, Validators.email]),
       phone: new FormControl(this.user?.phone, [Validators.required])
-     
     });
   }
-  
 
-  updateNameDisplay(value: string):void{
-    if(this.nameDisplay){
-      console.log(this.nameDisplay)
-      this.nameDisplay.nativeElement.textContent = value || 'No Name '
+  updateNameDisplay(value: string): void {
+    if (this.nameDisplay) {
+      this.nameDisplay.nativeElement.textContent = value || 'No Name';
     }
   }
-  
-
-  //   if (this.nameDisplay) {
-  
-  //     this.nameDisplay.nativeElement.textContent = value
-  //   }
-  // }
 
   get f() {
     return this.form.controls;
